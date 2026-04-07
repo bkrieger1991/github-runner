@@ -25,4 +25,4 @@ jobs:
           context: .
           push: true
           tags: |
-            github-runner:latest
+            flux1991/github-runner:latest
