@@ -1,3 +1,5 @@
+[![Build and Push](https://github.com/bkrieger1991/github-runner/actions/workflows/build-and-push.yaml/badge.svg)](https://github.com/bkrieger1991/github-runner/actions/workflows/build-and-push.yaml)
+
 # Custom GitHub Actions Runner (Docker)
 
 This repository contains a Dockerized GitHub Actions Runner based on **Debian**. Unlike many standard runner images, this version is specifically designed for production environments using **Docker Swarm** or **Kubernetes**, as it supports passing the GitHub Registration Token via a **file path** (ideal for Docker Secrets).
