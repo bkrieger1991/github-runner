@@ -26,5 +26,3 @@ jobs:
           push: true
           tags: |
             github-runner:latest
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
