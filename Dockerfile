@@ -4,12 +4,8 @@ FROM debian:trixie-backports
 ARG RUNNER_VERSION="2.333.1"
 
 # Install dependencies
-RUN apt-get update && apt-get install -y \
+RUN apt update && apt install -y \
     curl \
-    sudo \
-    git \
-    jq \
-    libicu70 \
     && rm -rf /var/lib/apt/lists/*
 
 # Create runner user (avoid using root)
