@@ -3,13 +3,21 @@ FROM debian:trixie-backports
 # Define runnter version
 ARG RUNNER_VERSION="2.333.1"
 
-# Install dependencies
+# Install dependencies and tools available on runner image
 RUN apt update && apt install -y \
     curl \
+    jq \
     && rm -rf /var/lib/apt/lists/*
+
+RUN YQ_VERSION=$(curl -s https://api.github.com/repos/mikefarah/yq/releases/latest | jq -r .tag_name) && \
+     echo "Latest yq version: ${YQ_VERSION}" && \
+     curl -L -o /usr/bin/yq "https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64"
+
+RUN chmod +x /usr/bin/yq
 
 # Create runner user (avoid using root)
 RUN useradd -m runner
+
 WORKDIR /home/runner
 
 # Download and extract GitHub Runner
